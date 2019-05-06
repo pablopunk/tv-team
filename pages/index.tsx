@@ -1,34 +1,37 @@
-import React from 'react';
-import countries from '../data/countries';
-import * as api from '../data/api';
+import React from 'react'
+import countries from '../data/countries'
+import * as api from '../data/api'
+import Match from '../components/Match'
 
 interface IState {
-  country?: string;
-  matches?: Array<any>;
-  loading: boolean;
+  country?: string
+  matches?: Array<any>
+  loading: boolean
 }
 
 export default class extends React.Component<{}, IState> {
   constructor(props: any) {
     super(props)
 
-    this.state = {loading: false}
+    this.state = { loading: false }
   }
-  countrySelected({target}: any) {
+  countrySelected({ target }: any) {
     if (target.value) {
-      this.setState({country: target.value})
+      this.setState({ country: target.value })
     }
   }
-  teamSelected({target}: any) {
+  teamSelected({ target }: any) {
     if (target.value) {
-      this.setState({loading: true})
-      api.get(this.state.country as string, target.value).then(({matches}) => {
-        this.setState({matches, loading: false})
-      })
+      this.setState({ loading: true })
+      api
+        .get(this.state.country as string, target.value)
+        .then(({ matches }) => {
+          this.setState({ matches, loading: false })
+        })
     }
   }
   render() {
-    const {country, matches = [], loading} = this.state
+    const { country, matches = [], loading } = this.state
     let teams: Array<any> = []
 
     if (country) {
@@ -63,10 +66,7 @@ export default class extends React.Component<{}, IState> {
           <div>
             {matches.map(match => (
               <article key={'match-' + match.game}>
-                <h2>{match.game}</h2>
-                <h3>
-                  {match.date} - {match.time}
-                </h3>
+                <Match match={match} />
               </article>
             ))}
           </div>
