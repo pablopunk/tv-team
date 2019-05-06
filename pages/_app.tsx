@@ -1,26 +1,10 @@
 import React from 'react'
-import App, { Container } from 'next/app'
+import App, {Container} from 'next/app'
 import Head from 'next/head'
-import styled, { createGlobalStyle } from 'styled-components'
-
-const GlobalStyles = createGlobalStyle`
-  body {
-    padding: 0;
-    margin: 0;
-  }
-`
-
-const CenteredMain = styled.main`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  width: 95vw;
-`
 
 export default class MyApp extends App {
   render() {
-    const { Component, pageProps } = this.props
+    const {Component, pageProps} = this.props
 
     return (
       <Container>
@@ -34,10 +18,21 @@ export default class MyApp extends App {
             crossOrigin="anonymous"
           />
         </Head>
-        <GlobalStyles />
-        <CenteredMain>
+        <main>
           <Component {...pageProps} />
-        </CenteredMain>
+        </main>
+        <style jsx>{`
+          main {
+            max-width: 1200px;
+            margin: 0 auto;
+          }
+        `}</style>
+        <style jsx global>{`
+          body {
+            padding: 0;
+            margin: 0;
+          }
+        `}</style>
       </Container>
     )
   }
