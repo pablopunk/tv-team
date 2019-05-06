@@ -15,6 +15,7 @@ const CenteredMain = styled.main`
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  width: 95vw;
 `
 
 export default class MyApp extends App {

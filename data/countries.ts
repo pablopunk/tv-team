@@ -1,18 +1,20 @@
+import {SelectrixOption} from 'react-selectrix'
+
 const countries: {
-  [index: string]: { label: string; teams: Array<OptionType> }
+  [index: string]: { label: string; teams: Array<SelectrixOption> }
 } = {
   spain: {
     label: 'Spain',
     teams: [
-      { value: 'real-madrid', label: 'Real Madrid' },
-      { value: 'barcelona', label: 'Barcelona' }
+      { key: 'real-madrid', label: 'Real Madrid' },
+      { key: 'barcelona', label: 'Barcelona' }
     ]
   },
   england: {
     label: 'England',
     teams: [
-      { value: 'arsenal', label: 'Arsenal' },
-      { value: 'tottenham-hotspur', label: 'Tottenham Hotspur' }
+      { key: 'arsenal', label: 'Arsenal' },
+      { key: 'tottenham-hotspur', label: 'Tottenham Hotspur' }
     ]
   }
 }
