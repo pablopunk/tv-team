@@ -18,6 +18,14 @@
     "@types/next": "^8.0.5",
     "@types/react": "^16.8.16",
     "@types/styled-jsx": "^2.2.8",
-    "@zeit/next-typescript": "^1.1.1"
+    "@zeit/next-typescript": "^1.1.1",
+    "husky": "^2.2.0",
+    "prettier": "^1.17.0",
+    "pretty-quick": "^1.10.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
